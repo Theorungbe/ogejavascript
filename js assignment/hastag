@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    //The marketing team is spending way too much time typing in hashtags. Let’s create a hashtag generator for them, our hashtag generator will meet the following criteria; 
+    It must start with a hash symbol, #.
+    Ignore all spaces in the input.
+All words must have their first letter capitalized.
+If the final result is going to be longer than 140 characters, it should return false.
+If the input or result is an empty string, it should return false.
+    <input type="text" id="textInput" placeholder="Enter text">
+    <button onclick="displayHashtag()">Generate Hashtag</button>
+    <p id="result"></p>
+<script>
+function generateHashtag(input) {
+  
+  var words = input.trim().split(" ");
+
+  
+  var capitalizedWords = words.map(function(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  });
+
+  
+  var hashtag = "#" + capitalizedWords.join("");
+
+  
+  if (hashtag.length === 1 || hashtag.length > 140) {
+    return false;
+  }
+
+  return hashtag;
+}
+
+function displayHashtag() {
+  var inputElement = document.getElementById("textInput");
+  var input = inputElement.value;
+
+  var outputElement = document.getElementById("result");
+
+  if (input.length > 0) {
+    var hashtag = generateHashtag(input);
+    if (hashtag) {
+      outputElement.innerHTML = "Generated Hashtag: " + hashtag;
+    } else {
+      outputElement.innerHTML = "The input is empty or the generated hashtag is too long.";
+    }
+  } else {
+    outputElement.innerHTML = "Please enter some text.";
+  }
+}
+
+</script>    
+</body>
+</html>         

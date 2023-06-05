@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    // Create a function that will return a boolean specifying if a number is a prime number
+    <input type="text" id="numberInput" placeholder="Enter a number">
+    <button onclick="displayIsPrime()">Check Prime</button>
+    <p id="result"></p>
+<script>
+ function isPrime(number) {
+  if (number <= 1) {
+    return false;
+  }
+
+  for (var i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function displayIsPrime() {
+  var inputElement = document.getElementById("numberInput");
+  var number = parseInt(inputElement.value);
+
+  var outputElement = document.getElementById("result");
+
+  if (!isNaN(number)) {
+    var isNumberPrime = isPrime(number);
+    outputElement.innerHTML = "Is " + number + " a prime number? " + isNumberPrime;
+  } else {
+    outputElement.innerHTML = "Invalid input. Please enter a number.";
+  }
+}
+</script>
+</body>
+</html>    

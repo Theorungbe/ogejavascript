@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    //Create a function that receives an array of numbers of diverse numbers and returns an array containing only positive numbers
+    <input type="text" id="numbersInput" placeholder="Enter comma-separated numbers">
+    <button onclick="displayPositiveNumbers()">Filter Positive Numbers</button>
+    <p id="result"></p>
+<script>
+ function filterPositiveNumbers(numbers) {
+  var positiveNumbers = numbers.filter(function(number) {
+    return number > 0;
+  });
+
+  return positiveNumbers;
+}
+
+function displayPositiveNumbers() {
+  var inputElement = document.getElementById("numbersInput");
+  var numbersString = inputElement.value;
+  var numbers = numbersString.split(",").map(function(num) {
+    return parseFloat(num.trim());
+  });
+
+  var outputElement = document.getElementById("result");
+
+  if (numbers.length > 0 && !isNaN(numbers[0])) {
+    var positiveNumbers = filterPositiveNumbers(numbers);
+    outputElement.innerHTML = "Positive numbers: " + positiveNumbers.join(", ");
+  } else {
+    outputElement.innerHTML = "Invalid input. Please enter comma-separated numbers.";
+  }
+}
+</script>
+</body>
+</html>      

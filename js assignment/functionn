@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+//Create a function that checks if a number, n is divisible by two numbers x and y. All inputs are positive, non-zero digits
+  <input type="text" id="numberInput" placeholder="Enter a number">
+<input type="text" id="xInput" placeholder="Enter x">
+<input type="text" id="yInput" placeholder="Enter y">
+<button onclick="displayDivisibility()">Check Divisibility</button>
+<p id="result"></p>
+<script>
+  function isDivisible(n, x, y) {
+  var isDivisible = (n % x === 0) && (n % y === 0);
+  return isDivisible;
+}
+
+function displayDivisibility() {
+  var nElement = document.getElementById("numberInput");
+  var xElement = document.getElementById("xInput");
+  var yElement = document.getElementById("yInput");
+
+  var n = parseFloat(nElement.value);
+  var x = parseFloat(xElement.value);
+  var y = parseFloat(yElement.value);
+
+  var outputElement = document.getElementById("result");
+
+  if (!isNaN(n) && !isNaN(x) && !isNaN(y) && n !== 0 && x !== 0 && y !== 0) {
+    var divisible = isDivisible(n, x, y);
+    outputElement.innerHTML = "Is " + n + " divisible by " + x + " and " + y + "? " + divisible;
+  } else {
+    outputElement.innerHTML = "Invalid input. Please enter positive, non-zero digits.";
+  }
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    //Write a program that prints the numbers from 1 to 100. But for multiples of 3 prints "Fizz" instead of the number and for the multiples of 5 prints "Buzz". For numbers which are multiples of both 3 and 5 prints "FizzBuzz".
+    <button onclick="fizzBuzz()">Print FizzBuzz</button>
+    <p id="result"></p>
+<script>
+ function fizzBuzz() {
+  var output = "";
+
+  for (var i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      output += "FizzBuzz ";
+    } else if (i % 3 === 0) {
+      output += "Fizz ";
+    } else if (i % 5 === 0) {
+      output += "Buzz ";
+    } else {
+      output += i + " ";
+    }
+  }
+
+  var outputElement = document.getElementById("result");
+  outputElement.innerHTML = output;
+}
+</script>
+</body>
+</html>         

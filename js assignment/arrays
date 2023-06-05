@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  //Create a function that will calculate the average of numbers in an array
+  <input type="text" id="numbersInput" placeholder="Enter comma-separated numbers">
+  <button onclick="displayAverage()">Calculate Average</button>
+  <p id="result"></p>
+<script>
+  function calculateAverage(numbers) {
+  var sum = 0;
+  for (var i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  var average = sum / numbers.length;
+  return average.toFixed(2);
+}
+
+function displayAverage() {
+  var inputElement = document.getElementById("numbersInput");
+  var numbersString = inputElement.value;
+  var numbers = numbersString.split(",").map(function (num) {
+    return parseFloat(num.trim());
+  });
+
+  var outputElement = document.getElementById("result");
+
+  if (numbers.length > 0 && !isNaN(numbers[0])) {
+    var average = calculateAverage(numbers);
+    outputElement.innerHTML = "The average is: " + average;
+  } else {
+    outputElement.innerHTML = "Invalid input. Please enter comma-separated numbers.";
+  }
+}
+
+
+
+</script>
+</body>
+</html>
+
+
+

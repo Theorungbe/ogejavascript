@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    //Create a function that will output the first 100 prime numbers.
+    <button onclick="displayPrimes()">Generate Primes</button>
+    <p id="result"></p>
+<script>
+ function generatePrimes(limit) {
+  var primes = [];
+  var num = 2;
+
+  while (primes.length < limit) {
+    if (isPrime(num)) {
+      primes.push(num);
+    }
+    num++;
+  }
+
+  return primes;
+}
+
+function isPrime(num) {
+  if (num <= 1) {
+    return false;
+  }
+
+  for (var i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function displayPrimes() {
+  var outputElement = document.getElementById("result");
+  var primes = generatePrimes(100);
+
+  outputElement.innerHTML = "The first 100 prime numbers are:<br>" + primes.join(", ");
+}
+ </script>
+</body>
+</html>  
